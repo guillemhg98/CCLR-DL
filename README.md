@@ -75,7 +75,7 @@ Though developed for healthcare demand modeling, the method is suitable for any 
 Computational resources were partially provided by AQuAS (Catalonia) and the PADRIS program. See paper for full authorship and institutional affiliations.
 
 ## 📜 License
-This project is licensed under the MIT License. See LICENSE file for details.
+This project is licensed under the Apache 2.0 Liccense. See LICENSE file for details.
 
 ## 📬 Contact
 

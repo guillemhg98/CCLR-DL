@@ -14,6 +14,7 @@ CCLR-DL is a three-phase pipeline designed to:
 - Enhance interpretability and accuracy of long-term forecasting, especially in clinical domains.
 
 ## 📁 Repository Structure
+```
 📦CCLR-DL/
  ┣ 📂src/                    # All source code
  ┃ ┣ 📜feature_selection.py # Lagged MLR + Granger causality
@@ -27,6 +28,7 @@ CCLR-DL is a three-phase pipeline designed to:
  ┣ 📜main.py                # Main runner script
  ┣ 📜requirements.txt       # Dependencies
  ┗ 📜README.md              # You are here
+```
 
 ## 📊 Dataset
 

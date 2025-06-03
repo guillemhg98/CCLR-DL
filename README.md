@@ -39,14 +39,17 @@ To promote transparency and reproducibility:
 
 ## 🚀 Getting Started
 ### 1. Clone the repository
-   git clone https://github.com/your-org/cclr-dl.git
-   cd cclr-dl
+   
+    git clone https://github.com/your-org/cclr-dl.git
+    cd cclr-dl
 
 ### 2. Create environment
-   pip install -r requirements.txt
+   
+    pip install -r requirements.txt
 
 ### 3. Run an example with synthetic data
-   python main.py --config configs/example.yaml
+    
+    python main.py --config configs/example.yaml
 
 ## 🧠 Methodology Highlights
 

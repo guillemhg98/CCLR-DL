@@ -17,17 +17,23 @@ CCLR-DL is a three-phase pipeline designed to:
 ```
 📦CCLR-DL/
  ┣ 📂src/                    # All source code
- ┃ ┣ 📜feature_selection.py # Lagged MLR + Granger causality
- ┃ ┣ 📜models.py            # DL models (LSTM, GRU, BiLSTM, etc.)
- ┃ ┣ 📜trainer.py           # Training pipeline and evaluation
- ┃ ┣ 📜utils.py             # Helper functions
- ┃ ┗ 📜synthetic_data.py    # Generator of synthetic dataset
- ┣ 📂notebooks/             # Example walkthroughs and experiments
- ┣ 📂data/                  # Synthetic dataset (only)
- ┃ ┗ 📜synthetic_timeseries.csv
- ┣ 📜main.py                # Main runner script
- ┣ 📜requirements.txt       # Dependencies
- ┗ 📜README.md              # You are here
+ ┃ ┣ 📜utils_LMLR.py           # Lagged MLR phase functions
+ ┃ ┣ 📜utils_Gcausal.py        # Granger causality phase functions
+ ┃ ┣ 📜utils_DL.py             # DL phase functions
+ ┃ ┗ 📜synthetic_data.py       # Generator of synthetic dataset
+ ┣ 📂notebooks/              # Example walkthroughs and experiments
+ ┃ ┣ 📜LMLR_notebook.ipynb     # Lagged MLR
+ ┃ ┣ 📜Gcausal_notebook.ipynb  # Granger causality
+ ┃ ┣ 📜DL_notebook.ipynb       # Deep learning forecasting
+ ┣ 📂data/                   # data
+ ┃ ┣ 📜BEST_features_ts350.xlsx   # best features for example ts 350 (most prevalent)
+ ┃ ┣ 📂data.zip/ 
+ ┃ ┃ ┗ 📜synthetic_timeseries.csv # synthetic 1000 ts dataset
+ ┣ 📜main_LMLR.py            # Main runner script LMLR phase
+ ┣ 📜main_Gcausal.py         # Main runner script Gcausal phase
+ ┣ 📜main_DL.py              # Main runner script DL phase
+ ┣ 📜requirements.txt        # Dependencies
+ ┗ 📜README.md               # You are here
 ```
 
 ## 📊 Dataset
@@ -55,9 +61,9 @@ To promote transparency and reproducibility:
 
 ## 🧠 Methodology Highlights
 
-- Phase 1 – Feature Selection (Lagged MLR): Identifies non-collinear predictors that best explain the target using forward stepwise regression.
-- Phase 2 – Granger Causality Test: Ensures that selected predictors statistically G-cause the target, increasing explainability.
-- Phase 3 – Deep Learning Forecasting: Multiple RNN-based architectures are trained using selected features. The best model is selected based on RMSE, MAE, and MAPE.
+- Phase 1 – Feature Selection (Lagged MLR): Identifies non-collinear predictors that best explain the target using forward stepwise regression. It outputs the file "BEST_features_ts350.xlsx" with the best features for each lagging period. 
+- Phase 2 – Granger Causality Test: Ensures that selected predictors statistically G-cause the target, increasing explainability. (predictors must be selected from lagged file "BEST_features_ts350.xlsx").
+- Phase 3 – Deep Learning Forecasting: Multiple RNN-based architectures are trained using selected features. The best model is selected based on RMSE, MAE, and MAPE. (predictors must be selected from lagged file "BEST_features_ts350.xlsx").
 
 ## 📈 Results Summary
 - CCLR-DL outperforms baseline models (univariate, random, SHAP) for long-horizon forecasting (≥ 14 days).
